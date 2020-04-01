@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="slide-one-item home-slider owl-carousel">
+  <div class="site-blocks-cover overlay" style="background-image: url({% static 'images/hero_bg_1.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row align-items-center justify-content-center text-center">
+        <div class="col-md-10">
+          <div class="jumbotron" style="background-color:rgba(233,236,239,0.5);">
+            <h2 class="">Best Rental Homes Driven By Data</h2>
+            <p class="">We take care of everything so that you can live in peace. Machine learning model for predicting the like minded flatmates</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% for item in carasoul_data %}
+  <div class="site-blocks-cover overlay" style="background-image: url({{item.image.url}});" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row align-items-center justify-content-center text-center">
+        <div class="col-md-10">
+          <div class="jumbotron" style="background-color:rgba(233,236,239,0.5);">
+            <h2 class="">{{item.title}}</h2>
+            <p class="">{{item.message}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <img src="{% static 'images/rental-house.jpg' %}" alt="Image" class="img-fluid">
+      </div>
+      <div class="col-md-5 ml-auto" data-aos="fade-up" data-aos-delay="200">
+        <div class="site-section-title">
+          <h2>Who We Are ?</h2>
+        </div>
+        <p>
+          Renchant Accommodations is a data driven housing rental service platform. It's vision is to solve the long-term and short-term rental apartment problem in India. It is committed to transforming the traditional housing rental industry with
+          the use of ML, AI and data driven models. Founded in early 2019, the company is a data-driven, high-quality rental, asset management and residential service platform. The product form covers shared apartments and rented apartments to meet
+          the diverse residential needs of techies in the city.
+        </p>
+        <p><a href="{% url 'index' %}" class="btn btn-outline-primary rounded-0 py-2 px-5">Current offerings</a></p>
+      </div </div>
+    </div>
+  </div>
+  <div class="site-section">
+    <div class="container">
+      <div class="row mb-5 justify-content-center" data-aos="fade-up">
+        <div class="col-md-7">
+          <div class="site-section-title text-center">
+            <h2>Why To Choose Us ?</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-6 mb-5 mb-lg-5" data-aos="fade-up" data-aos-delay="200">
+          <ul>
+            <h4> Benefits for tenants –</h4>
+            <li>ML based roommate &amp; flatmate selection model</li>
+            <li>Zero Brokerage &amp; just 3 month lock-in</li>
+            <li>Just bring your clothes and live hassle free</li>
+            <li>Affordable Pricing and low security deposit</li>
+            <li>Accommodation near your office</li>
+            <li>Free Relocation</li>
+            <li>Individual and shared rooms</li>
+            <li>24*7 Customer Support</li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-6 mb-5 mb-lg-5" data-aos="fade-up" data-aos-delay="400">
+          <ul>
+            <h4> Benefits for owners –</h4>
+            <li> Free listing on our portal </li>
+            <li> Free marketing on various channels </li>
+            <li> Handling Tenant visits, bookings, KYC &amp; verification</li>
+            <li> Property management and maintenance </li>
+            <li> Guranteed payments on time </li>
+            <li> Single point of contact and customer care</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="site-section bg-light">
+    <div class="container" data-aos="fade">
+      <div class="row mb-5 justify-content-center">
+        <div class="col-md-7">
+          <div class="site-section-title text-center">
+            <h2>Our Services</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+        {% for service in services %}
+        <div class="col-md-6 col-lg-4 mb-5 mb-lg-5">
+          <div class="team-member">
+            <img src="{{service.image.url}}" alt="Image" class="img-fluid rounded mb-4">
+            <div class="text">
+              <h2 class="mb-2 font-weight-light text-black h4">{{service.title}}</h2>
+              <p>{{service.description}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="site-section" style="background:#f9f9f9;">
+    <div class="testimonials-clean" style="background-color:#f9f9f9">
+      <div class="container">
+        <div class="intro">
+          <h2 class="text-center">Testimonials </h2>
+          <p class="text-center">Our customers love us! Read what they say about us.</p>
+        </div>
+        <div class="row people">
+          {% for item in testmonials %}
+          <div class="col-md-6 col-lg-4 item" style="margin-bottom:3px;">
+            <div class="box" id="box-{{item.name|cut:' '}}">
+              <p class="description" style="font-size:13px;">{{item.caption}}</p>
+            </div>
+            <div class="author"><img class="rounded-circle" id="image-click-{{item.name|cut:' '}}" src="{{item.image.url}}" />
+              <h5 class="name">{{item.name}}</h5>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    {% for item in testmonials %}
+    $('#image-click-{{item.name|cut:" "}}').on('click', function(){
+      $('#box-{{item.name|cut:" "}}').toggle();
+    });
+    {% endfor %}
+  </script>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="mb-5">
+            <h3 class="footer-heading mb-4">About Renchant</h3>
+            <p>
+              Renchant Accommodations is a data driven housing rental service platform. It's vision is to solve the long-term and short-term rental apartment problem in India
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <div class="row mb-5">
+            <div class="col-md-12">
+              <h3 class="footer-heading mb-4">Navigations</h3>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <ul class="list-unstyled">
+                <li><a href="{% url 'about' %}">Home</a></li>
+                <li><a href="{% url 'index' %}">Get started</a></li>
+                <li><a href="{% url 'property_list' %}">List your property</a></li>
+                <li><a href="{% url 'payment' %}">Pay Rent</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <ul class="list-unstyled">
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h3 class="footer-heading mb-4">Follow Us</h3>
+          <div>
+            <a href="https://www.facebook.com/RenchantAccommodates" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+            <a href="https://twitter.com/RenchantA" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+            <a href="https://www.instagram.com/renchant_accommodations" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+            <a href="https://www.linkedin.com/company/renchant-accommodations/" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+            <a href="https://wa.me/919071303144" class="pl-3 pr-3"><span class="icon-whatsapp"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  {% endblock %}

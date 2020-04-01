@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="site-section site-section-sm bg-light">
+  <div class="container">
+    <div class="site-section site-section-sm bg-light">
+      <div class="container">
+        {% for post in blog_post_list %}
+        <div class="row mb-4">
+          <div class="col-md-12">
+            <div class="property-entry horizontal d-lg-flex">
+              <a href="{% url 'blog_detail' post.pk %}" class="property-thumbnail h-100">
+                <img src="{{post.image.url}}" alt="Image" class="img-fluid">
+              </a>
+              <div class="p-4 property-body">
+                <h2 class="property-title"><a href="{% url 'blog_detail' post.pk %}">{{post.title}}</a></h2>
+                <p>{{post.caption}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!--Pagination-->
+    <div class="row mt-5">
+      <div class="col-md-12 text-center">
+        <div class="site-pagination">
+          {% if page_obj.has_previous %}
+          <a href="?&page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+          {% endif %}
+
+          <a href="?page={{page_obj.number}}" class="active">{{page_obj.number}}</a>
+
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

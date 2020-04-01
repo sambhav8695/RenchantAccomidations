@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="row jumbotron">
+  <div class="col-md-6" style="margin-top:2em;">
+    <div class="bg-white widget border rounded">
+      <h3 class="h4 text-black widget-title mb-3">Pay Using NEFT/RTGS/IMPS/UPI</h3>
+      <form action="#" class="form-contact-agent">
+        <div class="form-group">
+          <label for="name">BENEFICIARY NAME </label>
+          <input type="text" style="font-size:10px" value="RENCHANT ACCOMMODATIONS PRIVATE LIMITED" id="name" disabled class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="email">ACCOUNT NUMBER</label>
+          <input type="" style="font-size:12px" value="201003494449" disabled id="email" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="phone">ACCOUNT TYPE</label>
+          <input type="text" style="font-size:12px" value="CURRENT ACCOUNT" disabled id="phone" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="phone">BRANCH</label>
+          <input type="text" style="font-size:12px" value="IndusInd Bank Kalina Santacruz East Mumbai" disabled id="phone" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="phone">IFSC</label>
+          <input type="text" style="font-size:12px" value="INDB0001360" disabled id="phone" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="phone">UPI</label>
+          <input type="text" style="font-size:12px" value="renchant@upi" disabled id="phone" class="form-control">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-6" style="margin-top:2em;">
+    <div class="bg-white widget border rounded">
+      <h3 class="h4 text-black widget-title mb-3">Scan QR</h3>
+      <p>
+        <img width="100%" height="100%" src="{% static 'images/qr.jpg' %}" alt="">
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

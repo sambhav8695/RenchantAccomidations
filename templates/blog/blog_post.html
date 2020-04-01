@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+  .image-w img {
+    width: 100%;
+    height: 40%;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="site-section site-section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div style="margin-top:10px;background:white;" class="jumbotron image-w">
+          {{blog_post.content|safe}}
+        </div>
+      </div>
+      <!-- <div class="bg-white widget border rounded">
+          <h3 class="h4 text-black widget-title mb-3">Paragraph</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit qui explicabo, libero nam, saepe eligendi. Molestias maiores illum error rerum. Exercitationem ullam saepe, minus, reiciendis ducimus quis. Illo, quisquam, veritatis.</p>
+        </div> -->
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
