@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+RECAPTCHA_PUBLIC_KEY = '6LdEvboaAAAAABjhx9Iut1RKaG6hPYj-OG3etXBp'
+RECAPTCHA_PRIVATE_KEY = '6LdEvboaAAAAAIQdCXK3ne77XVsB5TSm-wTPhVz1'
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'captcha',
     'accounts',
     'ckeditor',
     'renchant',
