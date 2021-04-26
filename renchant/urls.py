@@ -11,4 +11,5 @@ urlpatterns = [
     path('list', views.PropertyListOwner.as_view(), name="property_list"),
     path('auth_property_details/<int:pk>', views.DetailProperty.as_view(), name='auth_property_details'),
     path('payment', views.Payment.as_view(), name='payment'),
+    path('captcha/', include('captcha.urls')),
 ]
