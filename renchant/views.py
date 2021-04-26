@@ -8,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.conf import settings
+from captcha.fields import ReCaptchaField
 # Create your views here.
 
 
@@ -242,6 +243,7 @@ def schedule_property(request):
 
 class Contact(View):
     def get(self, request):
+        captcha = ReCaptchaField(attrs={'theme' : 'clean'})
         return render(request, 'renchant/contact.html')
 
     def post(self, request):
