@@ -243,7 +243,6 @@ def schedule_property(request):
 
 class Contact(View):
     def get(self, request):
-        captcha = ReCaptchaField(attrs={'theme' : 'clean'})
         return render(request, 'renchant/contact.html')
 
     def post(self, request):
