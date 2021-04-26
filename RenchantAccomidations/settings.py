@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'ckeditor',
     'renchant',
     'blog',
-    'captcha',
 ]
 
 MIDDLEWARE = [
